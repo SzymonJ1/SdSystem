@@ -1,0 +1,23 @@
+# Ignoruj pliki binarne i katalogi
+bin/
+obj/
+
+# Ignoruj pliki konfiguracyjne IDE
+.vscode/
+*.csproj.user
+*.suo
+
+# Ignoruj pliki tymczasowe systemu operacyjnego
+.DS_Store
+Thumbs.db
+
+# Ignoruj pliki tymczasowe i logi
+*.log
+*.tmp
+
+# Ignoruj katalogi zależności
+node_modules/
+packages/
+
+# Ignoruj pliki środowiska uruchomieniowego
+.env
