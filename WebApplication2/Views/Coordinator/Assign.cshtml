@@ -1,0 +1,14 @@
+﻿@model SdSystem.Models.Ticket
+
+<h2>Przydziel Zgłoszenie</h2>
+
+<form asp-action="Assign" method="post">
+    <input type="hidden" asp-for="TicketId" />
+    <div class="form-group">
+        <label for="assignedToId">Przydziel do</label>
+        <select asp-for="AssignedToId" asp-items="@(new SelectList(ViewBag.SupportUsers, "UserId", "Username"))" class="form-control">
+            <option value="">-- Wybierz Pracownika --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Przydziel</button>
+</form>

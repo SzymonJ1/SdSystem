@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SdSystem.props" />
+</Project>

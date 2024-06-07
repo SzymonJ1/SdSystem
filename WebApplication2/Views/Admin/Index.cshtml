@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SdSystem.Models.User>
+
+<h2>Lista Koordynatorów</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa Użytkownika</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coordinator in Model)
+        {
+            <tr>
+                <td>@coordinator.UserId</td>
+                <td>@coordinator.Username</td>
+                <td>@coordinator.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateCoordinator">Dodaj Koordynatora</a>

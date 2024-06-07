@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SdSystem.Models.Ticket>
+
+<h2>Lista Przydzielonych Zgłoszeń</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tytuł</th>
+            <th>Opis</th>
+            <th>Priorytet</th>
+            <th>Status</th>
+            <th>Utworzone przez</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.TicketId</td>
+                <td>@ticket.Title</td>
+                <td>@ticket.Description</td>
+                <td>@ticket.Priority</td>
+                <td>@ticket.Status</td>
+                <td>@ticket.CreatedBy?.Username</td>
+                <td>
+                    <a asp-action="Resolve" asp-route-id="@ticket.TicketId">Rozwiąż</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

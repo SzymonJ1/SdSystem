@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SdSystem.Models.Ticket>
+
+<h2>Zrealizowane Zgłoszenia</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tytuł</th>
+            <th>Opis</th>
+            <th>Priorytet</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.TicketId</td>
+                <td>@ticket.Title</td>
+                <td>@ticket.Description</td>
+                <td>@ticket.Priority</td>
+                <td>@ticket.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

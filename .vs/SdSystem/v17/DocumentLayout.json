@@ -1,0 +1,328 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\data\\sdsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\data\\sdsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\ticket\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\ticket\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\sdsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\sdsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\coordinator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\coordinator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\coordinator\\setpriority.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\coordinator\\setpriority.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\coordinator\\completedticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\coordinator\\completedticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\coordinator\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\coordinator\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\admin\\createcoordinator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\admin\\createcoordinator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\controllers\\supportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\controllers\\supportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\views\\support\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\views\\support\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|c:\\users\\szymo\\source\\repos\\webapplication2\\webapplication2\\controllers\\coordinatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5221379C-E9B4-405E-A8FE-09479BF1F4DC}|WebApplication2\\SdSystem.csproj|solutionrelative:webapplication2\\controllers\\coordinatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SdSystemContext.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Data\\SdSystemContext.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Data\\SdSystemContext.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Data\\SdSystemContext.cs",
+              "RelativeToolTip": "WebApplication2\\Data\\SdSystemContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T20:47:45.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CompletedTicket.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\CompletedTicket.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Coordinator\\CompletedTicket.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\CompletedTicket.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Coordinator\\CompletedTicket.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T19:06:12.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Program.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Program.cs",
+              "RelativeToolTip": "WebApplication2\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T21:41:51.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Assign.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\Assign.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Coordinator\\Assign.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\Assign.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Coordinator\\Assign.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T18:57:14.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SdSystem.csproj",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\SdSystem.csproj",
+              "RelativeDocumentMoniker": "WebApplication2\\SdSystem.csproj",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\SdSystem.csproj",
+              "RelativeToolTip": "WebApplication2\\SdSystem.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-05T20:46:24.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:45:36.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAIA2wCcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T20:23:01.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication2\\appsettings.json",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\appsettings.json",
+              "RelativeToolTip": "WebApplication2\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-05T20:56:43.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SetPriority.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\SetPriority.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Coordinator\\SetPriority.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\SetPriority.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Coordinator\\SetPriority.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T19:05:14.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Models\\Ticket.cs",
+              "RelativeToolTip": "WebApplication2\\Models\\Ticket.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T20:45:08.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Models\\User.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Models\\User.cs",
+              "RelativeToolTip": "WebApplication2\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T20:44:37.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Coordinator\\Index.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Coordinator\\Index.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Coordinator\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T18:54:02.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T20:31:43.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Ticket\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Ticket\\Create.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Ticket\\Create.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Ticket\\Create.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T20:36:01.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T18:48:53.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CreateCoordinator.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Admin\\CreateCoordinator.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Admin\\CreateCoordinator.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Admin\\CreateCoordinator.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Admin\\CreateCoordinator.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T18:51:36.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SupportController.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\SupportController.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\SupportController.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\SupportController.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\SupportController.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAADwvycAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:46:56.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Support\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\Support\\Index.cshtml",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Views\\Support\\Index.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\Support\\Index.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAIBJwCEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T19:08:40.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CoordinatorController.cs",
+              "DocumentMoniker": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\CoordinatorController.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CoordinatorController.cs",
+              "ToolTip": "C:\\Users\\szymo\\source\\repos\\WebApplication2\\WebApplication2\\Controllers\\CoordinatorController.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CoordinatorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:46:10.474Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

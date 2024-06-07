@@ -1,0 +1,16 @@
+﻿@model SdSystem.Models.Ticket
+
+<h2>Ustaw Priorytet Zgłoszenia</h2>
+
+<form asp-action="SetPriority" method="post">
+    <input type="hidden" asp-for="TicketId" />
+    <div class="form-group">
+        <label for="priority">Priorytet</label>
+        <select asp-for="Priority" class="form-control">
+            <option value="Low">Niski</option>
+            <option value="Medium">Średni</option>
+            <option value="High">Wysoki</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ustaw Priorytet</button>
+</form>
