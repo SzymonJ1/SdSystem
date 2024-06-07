@@ -1,24 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "SDSYSTEM";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to SD System</h1>
-    <p>Log in to access your dashboard or create a new ticket.</p>
+    <h1 class="display-4">SDSYSTEM</h1>
+    <p>Zaloguj się lub stwórz nowy ticket</p>
 
     <form method="post" action="/Home/Login">
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Login</label>
             <input type="text" class="form-control" id="username" name="username" required>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Hasło</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
+        <button type="submit" class="btn btn-primary">Zaloguj się</button>
     </form>
 
     <hr>
 
-    <a href="/Ticket/Create" class="btn btn-secondary">Create a New Ticket</a>
+    <a href="/Ticket/Create" class="btn btn-secondary">Stwórz nowy ticket</a>
 </div>
