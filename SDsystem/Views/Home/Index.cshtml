@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Strona główna";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Witaj w SD System</h1>
+    <p>
+        <a class="btn btn-primary" asp-controller="Tickets" asp-action="Create">Utwórz zgłoszenie</a>
+    </p>
+    <p>
+        <a class="btn btn-primary" asp-controller="Search" asp-action="Search">Sprawdź status zgłoszenia</a>
+    </p>
+</div>
