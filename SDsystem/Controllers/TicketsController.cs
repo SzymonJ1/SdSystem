@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SDsystem.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SDsystem.Controllers
 {
@@ -19,12 +20,14 @@ namespace SDsystem.Controllers
         }
 
         // GET: Tickets
+        [Authorize(Roles = "Coordinator")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Tickets.ToListAsync());
         }
 
         // GET: Tickets/Details/5
+        [Authorize(Roles = "Coordinator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,6 +46,7 @@ namespace SDsystem.Controllers
         }
 
         // GET: Tickets/Create
+        [AllowAnonymous]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +56,7 @@ namespace SDsystem.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticketEntity)
         {
@@ -69,6 +74,7 @@ namespace SDsystem.Controllers
 
 
         // GET: Tickets/Edit/5
+        [Authorize(Roles = "Coordinator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +94,7 @@ namespace SDsystem.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Coordinator")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticketEntity)
         {
@@ -120,6 +127,7 @@ namespace SDsystem.Controllers
         }
 
         // GET: Tickets/Delete/5
+        [Authorize(Roles = "Coordinator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +147,7 @@ namespace SDsystem.Controllers
 
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Coordinator")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

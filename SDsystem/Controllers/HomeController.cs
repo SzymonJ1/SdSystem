@@ -26,6 +26,11 @@ namespace SDsystem.Controllers
             return View();
         }
 
+        public IActionResult AccessDenied()
+        {
+            ViewBag.ErrorMessage = "Brak dost?pu do zg?osze?, zaloguj si? do panelu koordynatora.";
+            return View();
+        }
       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
