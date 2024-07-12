@@ -1,22 +1,81 @@
-html {
-  font-size: 14px;
-}
+/* site.css */
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Global Styles */
 body {
-  margin-bottom: 60px;
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkê */
+    background-color: #f8f9fa;
+    color: #343a40;
 }
+
+h1.display-4 {
+    margin-top: 20px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkê */
+}
+
+/* Navigation Styles */
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand, .nav-link {
+    color: #343a40 !important;
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkê */
+}
+
+    .navbar-brand:hover, .nav-link:hover {
+        color: #ffc107 !important;
+    }
+
+/* Main Container Styles */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Home Page Styles */
+.user-actions {
+    margin-top: 30px;
+}
+
+.coordinator-actions {
+    margin-top: 30px;
+    border-top: 1px solid #dee2e6;
+    padding-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+/* Footer Styles */
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+    .footer a {
+        color: #ffc107;
+    }
+
+        .footer a:hover {
+            color: #ffffff;
+        }

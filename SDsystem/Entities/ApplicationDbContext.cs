@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SDsystem.Entities;
 namespace SDsystem.Entities
+
+
 
 
 {
@@ -10,6 +13,7 @@ namespace SDsystem.Entities
         {
         }
         public DbSet<TicketEntity> Tickets { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,3 +22,4 @@ namespace SDsystem.Entities
         }
     }
 }
+

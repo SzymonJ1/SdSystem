@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using SDsystem.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SDsystem.Controllers
 {
@@ -90,6 +91,8 @@ namespace SDsystem.Controllers
                 {
                     return NotFound();
                 }
+                // Lista statusów
+                ViewBag.Statuses = new SelectList(new List<string> { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticketEntity.Status);
                 return View(ticketEntity);
             }
             return RedirectToAction("Login", "Account");
@@ -127,6 +130,7 @@ namespace SDsystem.Controllers
                     }
                     return RedirectToAction(nameof(Index));
                 }
+                ViewBag.Statuses = new SelectList(new List<string> { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticketEntity.Status);
                 return View(ticketEntity);
             }
             return RedirectToAction("Login", "Account");

@@ -1,13 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SDsystem.Models;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
+using SDsystem.Entities;
 
 namespace SDsystem.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly string adminUsername = "admin";
-        private readonly string adminPassword = "admin";
+        private readonly ApplicationDbContext _context;
+
+        public AccountController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         // GET: Account/Login
         public IActionResult Login()
@@ -18,9 +23,10 @@ namespace SDsystem.Controllers
         [HttpPost]
         public IActionResult Login(UserModel model)
         {
-            if (model.Username == adminUsername && model.Password == adminPassword)
+            var user = _context.Users.SingleOrDefault(u => u.Username == model.Username && u.Password == model.Password);
+            if (user != null)
             {
-                HttpContext.Session.SetString("Username", model.Username);
+                HttpContext.Session.SetString("Username", user.Username);
                 HttpContext.Session.SetString("Role", "Coordinator");
                 return RedirectToAction("Index", "Tickets");
             }

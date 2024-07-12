@@ -28,7 +28,7 @@ namespace SDsystem.Controllers
 
         public IActionResult AccessDenied()
         {
-            ViewBag.ErrorMessage = "Brak dost?pu do zg?osze?, zaloguj si? do panelu koordynatora.";
+            ViewBag.ErrorMessage = "Brak dostêpu do zg³oszeñ, zaloguj siê do panelu koordynatora.";
             return View();
         }
       
