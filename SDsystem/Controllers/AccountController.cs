@@ -31,6 +31,7 @@ namespace SDsystem.Controllers
             }
         }
 
+        [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
