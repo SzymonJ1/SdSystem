@@ -1,0 +1,20 @@
+﻿@Model SDsystem.Models.UserModel
+
+<h2>Logowanie</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label for="Username">Login</label>
+        <input type="text" id="Username" name="Username" />
+    </div>
+    <div>
+        <label for="Password">Hasło</label>
+        <input type="password" id="Password" name="Password" />
+    </div>
+    <button type="submit">Zaloguj</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
