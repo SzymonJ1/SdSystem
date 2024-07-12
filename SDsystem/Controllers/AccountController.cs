@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SDsystem.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace SDsystem.Controllers
 {
@@ -19,6 +20,8 @@ namespace SDsystem.Controllers
         {
             if (model.Username == adminUsername && model.Password == adminPassword)
             {
+                HttpContext.Session.SetString("Username", model.Username);
+                HttpContext.Session.SetString("Role", "Coordinator");
                 return RedirectToAction("Index", "Tickets");
             }
             else
@@ -26,6 +29,12 @@ namespace SDsystem.Controllers
                 ViewBag.Message = "Nieprawidłowe dane logowania";
                 return View();
             }
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }

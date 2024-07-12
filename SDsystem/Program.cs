@@ -9,6 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -30,32 +37,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-/*using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    string roleName = "Coordinator";
-    string adminEmail = "admin@admin.com";
-    string adminPassword = "admin";
-
-    if (!await roleManager.RoleExistsAsync(roleName))
-    {
-        await roleManager.CreateAsync(new IdentityRole(roleName));
-    }
-
-    var adminUser = await userManager.FindByEmailAsync(adminEmail);
-    if (adminUser == null)
-    {
-        adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail };
-        await userManager.CreateAsync(adminUser, adminPassword);
-        await userManager.AddToRoleAsync(adminUser, roleName);
-    }
-}*/
 
 app.Run();
