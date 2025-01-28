@@ -6,9 +6,6 @@
 
 <h1>Zgłoszenia</h1>
 
-
-
-
 <table class="table">
     <thead>
         <tr>
@@ -35,14 +32,14 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
-                <a href="@Url.Action("Index", new { sortOrder = ViewData["SortOrder"]?.ToString() == "desc" ? "asc" : "desc" })">
-                    @if (ViewData["SortOrder"]?.ToString() == "desc")
+                <a href="@Url.Action("Index", new { sortOrder = ViewData["DateSortParam"] })">
+                    @if (ViewData["CurrentSort"]?.ToString() == "date_asc")
                     {
-                        <span>↓</span> <!-- Ikona wskazująca na sortowanie malejąco -->
+                        <span>↑</span> <!-- Strzałka w górę (sortowanie rosnąco) -->
                     }
                     else
                     {
-                        <span>↑</span> <!-- Ikona wskazująca na sortowanie rosnąco -->
+                        <span>↓</span> <!-- Strzałka w dół (sortowanie malejąco) -->
                     }
                 </a>
             </th>
@@ -86,6 +83,7 @@
         }
     </tbody>
 </table>
+
 <form asp-controller="Account" asp-action="Logout" method="post" style="margin-bottom: 10px;">
     <button type="submit" class="logout-button">Wyloguj</button>
 </form>

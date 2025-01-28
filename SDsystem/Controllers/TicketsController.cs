@@ -8,7 +8,6 @@ using SDsystem.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
 
 namespace SDsystem.Controllers
 {
@@ -22,24 +21,25 @@ namespace SDsystem.Controllers
         }
 
         // GET: Tickets
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
             if (HttpContext.Session.GetString("Role") == "Coordinator")
             {
-                // Określamy, jak ma wyglądać domyślne sortowanie
-                ViewData["DateSortParam"] = String.IsNullOrEmpty("sortOrder") ? "date_desc" : "";
+                // Ustawienie domyślnego sortowania
+                ViewData["CurrentSort"] = sortOrder; // Przekazanie aktualnego stanu sortowania do widoku
+                ViewData["DateSortParam"] = sortOrder == "date_asc" ? "date_desc" : "date_asc"; // Określenie kolejnego stanu sortowania
 
                 var tickets = from t in _context.Tickets
                               select t;
 
                 // Sortowanie po dacie
-                switch ("sortOrder")
+                switch (sortOrder)
                 {
-                    case "date_desc":
-                        tickets = tickets.OrderByDescending(t => t.Date); // Sortowanie malejąco
-                        break;
                     case "date_asc":
                         tickets = tickets.OrderBy(t => t.Date); // Sortowanie rosnąco
+                        break;
+                    case "date_desc":
+                        tickets = tickets.OrderByDescending(t => t.Date); // Sortowanie malejąco
                         break;
                     default:
                         tickets = tickets.OrderByDescending(t => t.Date); // Domyślne sortowanie malejąco
@@ -47,13 +47,10 @@ namespace SDsystem.Controllers
                 }
 
                 return View(await tickets.ToListAsync());
-
             }
-
 
             return RedirectToAction("Login", "Account");
         }
-        
 
         // GET: Tickets/Details/5
         public async Task<IActionResult> Details(int? id)
