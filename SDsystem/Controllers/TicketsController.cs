@@ -21,16 +21,23 @@ namespace SDsystem.Controllers
         }
 
         // GET: Tickets
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string statusFilter)
         {
             if (HttpContext.Session.GetString("Role") == "Coordinator")
             {
                 // Ustawienie domyślnego sortowania
                 ViewData["CurrentSort"] = sortOrder; // Przekazanie aktualnego stanu sortowania do widoku
                 ViewData["DateSortParam"] = sortOrder == "date_asc" ? "date_desc" : "date_asc"; // Określenie kolejnego stanu sortowania
+                ViewData["StatusFilter"] = statusFilter; // Przekazanie aktualnego filtru statusu do widoku
 
                 var tickets = from t in _context.Tickets
                               select t;
+
+                // Filtrowanie po statusie
+                if (!string.IsNullOrEmpty(statusFilter))
+                {
+                    tickets = tickets.Where(t => t.Status == statusFilter);
+                }
 
                 // Sortowanie po dacie
                 switch (sortOrder)

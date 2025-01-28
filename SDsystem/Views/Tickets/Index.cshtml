@@ -6,6 +6,22 @@
 
 <h1>Zgłoszenia</h1>
 
+<!-- Przyciski filtrowania po statusie -->
+<div>
+    <a href="@Url.Action("Index", new { statusFilter = ViewData["StatusFilter"]?.ToString() == "Aktywne" ? "" : "Aktywne" })" class="btn @(ViewData["StatusFilter"]?.ToString() == "Aktywne" ? "btn-primary" : "btn-secondary")">
+        Aktywne
+    </a>
+    <a href="@Url.Action("Index", new { statusFilter = ViewData["StatusFilter"]?.ToString() == "Obsługiwane" ? "" : "Obsługiwane" })" class="btn @(ViewData["StatusFilter"]?.ToString() == "Obsługiwane" ? "btn-primary" : "btn-secondary")">
+        Obsługiwane
+    </a>
+    <a href="@Url.Action("Index", new { statusFilter = ViewData["StatusFilter"]?.ToString() == "Przydzielone" ? "" : "Przydzielone" })" class="btn @(ViewData["StatusFilter"]?.ToString() == "Przydzielone" ? "btn-primary" : "btn-secondary")">
+        Przydzielone
+    </a>
+    <a href="@Url.Action("Index", new { statusFilter = ViewData["StatusFilter"]?.ToString() == "Zakończone" ? "" : "Zakończone" })" class="btn @(ViewData["StatusFilter"]?.ToString() == "Zakończone" ? "btn-primary" : "btn-secondary")">
+        Zakończone
+    </a>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -85,5 +101,5 @@
 </table>
 
 <form asp-controller="Account" asp-action="Logout" method="post" style="margin-bottom: 10px;">
-    <button type="submit" class="logout-button">Wyloguj</button>
+    <button type="submit" class="btn btn-secondary logout-button">Wyloguj</button>
 </form>
