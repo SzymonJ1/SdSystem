@@ -8,6 +8,7 @@ using SDsystem.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 
 namespace SDsystem.Controllers
 {
@@ -25,10 +26,34 @@ namespace SDsystem.Controllers
         {
             if (HttpContext.Session.GetString("Role") == "Coordinator")
             {
-                return View(await _context.Tickets.ToListAsync());
+                // Określamy, jak ma wyglądać domyślne sortowanie
+                ViewData["DateSortParam"] = String.IsNullOrEmpty("sortOrder") ? "date_desc" : "";
+
+                var tickets = from t in _context.Tickets
+                              select t;
+
+                // Sortowanie po dacie
+                switch ("sortOrder")
+                {
+                    case "date_desc":
+                        tickets = tickets.OrderByDescending(t => t.Date); // Sortowanie malejąco
+                        break;
+                    case "date_asc":
+                        tickets = tickets.OrderBy(t => t.Date); // Sortowanie rosnąco
+                        break;
+                    default:
+                        tickets = tickets.OrderByDescending(t => t.Date); // Domyślne sortowanie malejąco
+                        break;
+                }
+
+                return View(await tickets.ToListAsync());
+
             }
+
+
             return RedirectToAction("Login", "Account");
         }
+        
 
         // GET: Tickets/Details/5
         public async Task<IActionResult> Details(int? id)
