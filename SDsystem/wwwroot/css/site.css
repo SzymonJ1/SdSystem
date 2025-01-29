@@ -70,6 +70,8 @@ h1.display-4 {
     background-color: #343a40;
     color: #ffffff;
     padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid;
 }
 
     .footer a {
