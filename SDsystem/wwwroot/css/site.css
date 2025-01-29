@@ -1,16 +1,27 @@
-/* site.css */
+﻿/* site.css */
 
 /* Global Styles */
+html, body {
+    height: 100%; /* Upewnij się, że strona zajmuje całą wysokość okna */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
-    font-family: 'Roboto', sans-serif; /* Zmieniono czcionk� */
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkę */
     background-color: #f8f9fa;
     color: #343a40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Upewnij się, że body zajmuje całą wysokość widoku */
 }
 
 h1.display-4 {
     margin-top: 20px;
     font-weight: 300;
-    font-family: 'Roboto', sans-serif; /* Zmieniono czcionk� */
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkę */
 }
 
 /* Navigation Styles */
@@ -20,7 +31,7 @@ h1.display-4 {
 
 .navbar-brand, .nav-link {
     color: #343a40 !important;
-    font-family: 'Roboto', sans-serif; /* Zmieniono czcionk� */
+    font-family: 'Roboto', sans-serif; /* Zmieniono czcionkę */
 }
 
     .navbar-brand:hover, .nav-link:hover {
@@ -29,9 +40,8 @@ h1.display-4 {
 
 /* Main Container Styles */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+    flex: 1; /* Rozciąga kontener, aby wypełnić dostępną przestrzeń */
+    padding: 20px; /* Dodaj odstęp, aby treść nie dotykała krawędzi */
 }
 
 /* Home Page Styles */
@@ -72,6 +82,7 @@ h1.display-4 {
     padding: 10px 0;
     text-align: center;
     border-top: 1px solid;
+    margin-top: auto; /* Przypina stopkę do dołu */
 }
 
     .footer a {
