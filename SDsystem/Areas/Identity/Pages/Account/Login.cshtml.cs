@@ -23,11 +23,15 @@ namespace SDsystem.Areas.Identity.Pages.Account
         private readonly SignInManager<UserModel> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<UserModel> signInManager, ILogger<LoginModel> logger)
+        private readonly UserManager<UserModel> _userManager;
+
+        public LoginModel(UserManager<UserModel> userManager, SignInManager<UserModel> signInManager, ILogger<LoginModel> logger)
         {
+            _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
         }
+
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -105,37 +109,59 @@ namespace SDsystem.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
+            _logger.LogInformation("OnPostAsync called, returnUrl: " + returnUrl);
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+                var user = await _userManager.FindByEmailAsync(Input.Email);
+                if (user == null)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
+                    _logger.LogWarning("Login failed: User not found.");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
                 }
+
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation($"User {user.Email} logged in successfully.");
+
+                    var roles = await _userManager.GetRolesAsync(user);
+                    _logger.LogInformation($"User roles: {string.Join(", ", roles)}");
+
+                    if (roles.Count == 0)
+                    {
+                        _logger.LogError("No roles assigned to user! Redirecting to Home.");
+                        return LocalRedirect("~/Home/Index"); // Prevent infinite loops
+                    }
+
+                    if (roles.Contains("Coordinator"))
+                    {
+                        _logger.LogInformation("Redirecting to /Tickets/Index");
+                        return LocalRedirect("~/Tickets/Index");
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Redirecting to /Home/Index");
+                        return LocalRedirect("~/Home/Index");
+                    }
+                }
+                else
+                {
+                    _logger.LogWarning("Login failed: Invalid credentials.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                }
             }
 
-            // If we got this far, something failed, redisplay form
+            _logger.LogWarning("ModelState is invalid.");
             return Page();
         }
+
     }
+
 }
+
+

@@ -1,16 +1,25 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SDsystem.Entities;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.SignIn.RequireConfirmedEmail = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Identity/Account/Login"; // Redirects to the correct login page
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied"; // Redirects unauthorized users
+});
 
 builder.Services.AddSession(options =>
 {
@@ -19,32 +28,56 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-
-// Add services to the container.
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
 
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Identity/Account/Login");
+    return Task.CompletedTask;
+});
+
+app.MapRazorPages();
+app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserModel>>();
+
+    if (!await roleManager.RoleExistsAsync("Coordinator"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("Coordinator"));
+    }
+
+    if (!await roleManager.RoleExistsAsync("User"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("User"));
+    }
+
+    var adminUser = await userManager.FindByEmailAsync("admin@mail.com");
+    if (adminUser != null && !await userManager.IsInRoleAsync(adminUser, "Coordinator"))
+    {
+        await userManager.AddToRoleAsync(adminUser, "Coordinator");
+    }
+
+    var normalUser = await userManager.FindByEmailAsync("user@mail.com");
+    if (normalUser != null && !await userManager.IsInRoleAsync(normalUser, "User"))
+    {
+        await userManager.AddToRoleAsync(normalUser, "User");
+    }
+}
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 
 app.Run();

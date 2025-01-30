@@ -1,47 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System.Linq;
-using SDsystem.Entities;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SDsystem.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(SignInManager<IdentityUser> signInManager)
         {
-            _context = context;
+            _signInManager = signInManager;
         }
 
-        // GET: Account/Login
-        public IActionResult Login()
-        {
-            return View();
-        }
-
+        // Akcja do wylogowania
         [HttpPost]
-        public IActionResult Login(UserModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
         {
-            var user = _context.Users.SingleOrDefault(u => u.UserName == model.UserName && u.PasswordHash == model.PasswordHash);
-            if (user != null)
-            {
-                HttpContext.Session.SetString("Username", user.UserName);
-                HttpContext.Session.SetString("Role", "Coordinator");
-                return RedirectToAction("Index", "Tickets");
-            }
-            else
-            {
-                ViewBag.Message = "Nieprawidłowe dane logowania";
-                return View();
-            }
-        }
-
-        [HttpPost]
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            await _signInManager.SignOutAsync(); // Wyloguj użytkownika
+            return RedirectToAction("Login", "Account"); // Przekieruj na stronę logowania
         }
     }
 }

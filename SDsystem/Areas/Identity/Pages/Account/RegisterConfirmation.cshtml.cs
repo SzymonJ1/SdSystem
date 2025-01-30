@@ -19,12 +19,12 @@ namespace SDsystem.Areas.Identity.Pages.Account
     public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<UserModel> _userManager;
-        private readonly IEmailSender _sender;
+
 
         public RegisterConfirmationModel(UserManager<UserModel> userManager, IEmailSender sender)
         {
             _userManager = userManager;
-            _sender = sender;
+    
         }
 
         /// <summary>

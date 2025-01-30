@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SDsystem.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SDsystem.Controllers
 {
+    [Authorize(Roles = "Coordinator")]
     public class TicketsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,62 +23,34 @@ namespace SDsystem.Controllers
         // GET: Tickets
         public async Task<IActionResult> Index(string sortOrder, string statusFilter)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["DateSortParam"] = string.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            ViewData["StatusFilter"] = statusFilter;
+
+            var tickets = _context.Tickets.AsQueryable();
+
+            if (!string.IsNullOrEmpty(statusFilter))
             {
-                // Ustawienie domyślnego sortowania
-                ViewData["CurrentSort"] = sortOrder; // Przekazanie aktualnego stanu sortowania do widoku
-                ViewData["DateSortParam"] = sortOrder == "date_asc" ? "date_desc" : "date_asc"; // Określenie kolejnego stanu sortowania
-                ViewData["StatusFilter"] = statusFilter; // Przekazanie aktualnego filtru statusu do widoku
-
-                var tickets = from t in _context.Tickets
-                              select t;
-
-                // Filtrowanie po statusie
-                if (!string.IsNullOrEmpty(statusFilter))
-                {
-                    tickets = tickets.Where(t => t.Status == statusFilter);
-                }
-
-                // Sortowanie po dacie
-                switch (sortOrder)
-                {
-                    case "date_asc":
-                        tickets = tickets.OrderBy(t => t.Date); // Sortowanie rosnąco
-                        break;
-                    case "date_desc":
-                        tickets = tickets.OrderByDescending(t => t.Date); // Sortowanie malejąco
-                        break;
-                    default:
-                        tickets = tickets.OrderByDescending(t => t.Date); // Domyślne sortowanie malejąco
-                        break;
-                }
-
-                return View(await tickets.ToListAsync());
+                tickets = tickets.Where(t => t.Status == statusFilter);
             }
 
-            return RedirectToAction("Login", "Account");
+            tickets = sortOrder switch
+            {
+                "date_asc" => tickets.OrderBy(t => t.Date),
+                "date_desc" => tickets.OrderByDescending(t => t.Date),
+                _ => tickets.OrderByDescending(t => t.Date)
+            };
+
+            return View(await tickets.ToListAsync());
         }
 
         // GET: Tickets/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
-            {
-                if (id == null)
-                {
-                    return NotFound();
-                }
+            if (id == null) return NotFound();
 
-                var ticketEntity = await _context.Tickets
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (ticketEntity == null)
-                {
-                    return NotFound();
-                }
-
-                return View(ticketEntity);
-            }
-            return RedirectToAction("Login", "Account");
+            var ticket = await _context.Tickets.FirstOrDefaultAsync(m => m.Id == id);
+            return ticket == null ? NotFound() : View(ticket);
         }
 
         // GET: Tickets/Create
@@ -92,99 +64,62 @@ namespace SDsystem.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticketEntity)
+        public async Task<IActionResult> Create([Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticket)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(ticketEntity);
-                await _context.SaveChangesAsync();
+            if (!ModelState.IsValid) return View(ticket);
 
-                TempData["SuccessMessage"] = $"Pomyślnie utworzono zgłoszenie o ID: {ticketEntity.Id}. Skopiuj ID, aby sprawdzać status zgłoszenia.";
-                return RedirectToAction("Index", "Home");
-            }
-            return View(ticketEntity);
+            _context.Add(ticket);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = $"Pomyślnie utworzono zgłoszenie o ID: {ticket.Id}";
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Tickets/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
-            {
-                if (id == null)
-                {
-                    return NotFound();
-                }
+            if (id == null) return NotFound();
 
-                var ticketEntity = await _context.Tickets.FindAsync(id);
-                if (ticketEntity == null)
-                {
-                    return NotFound();
-                }
-                // Lista statusów
-                ViewBag.Statuses = new SelectList(new List<string> { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticketEntity.Status);
-                return View(ticketEntity);
-            }
-            return RedirectToAction("Login", "Account");
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null) return NotFound();
+
+            ViewBag.Statuses = new SelectList(new[] { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticket.Status);
+            return View(ticket);
         }
 
         // POST: Tickets/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticketEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Subject,Description,Name,Surname,Department,Status,Date")] TicketEntity ticket)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
-            {
-                if (id != ticketEntity.Id)
-                {
-                    return NotFound();
-                }
+            if (id != ticket.Id) return NotFound();
 
-                if (ModelState.IsValid)
-                {
-                    try
-                    {
-                        _context.Update(ticketEntity);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!TicketEntityExists(ticketEntity.Id))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
-                }
-                ViewBag.Statuses = new SelectList(new List<string> { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticketEntity.Status);
-                return View(ticketEntity);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Statuses = new SelectList(new[] { "Aktywne", "Obsługiwane", "Przydzielone", "Zakończone" }, ticket.Status);
+                return View(ticket);
             }
-            return RedirectToAction("Login", "Account");
+
+            try
+            {
+                _context.Update(ticket);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TicketExists(ticket.Id)) return NotFound();
+                throw;
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Tickets/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
-            {
-                if (id == null)
-                {
-                    return NotFound();
-                }
+            if (id == null) return NotFound();
 
-                var ticketEntity = await _context.Tickets
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (ticketEntity == null)
-                {
-                    return NotFound();
-                }
-
-                return View(ticketEntity);
-            }
-            return RedirectToAction("Login", "Account");
+            var ticket = await _context.Tickets.FirstOrDefaultAsync(m => m.Id == id);
+            return ticket == null ? NotFound() : View(ticket);
         }
 
         // POST: Tickets/Delete/5
@@ -192,23 +127,13 @@ namespace SDsystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (HttpContext.Session.GetString("Role") == "Coordinator")
-            {
-                var ticketEntity = await _context.Tickets.FindAsync(id);
-                if (ticketEntity != null)
-                {
-                    _context.Tickets.Remove(ticketEntity);
-                }
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket != null) _context.Tickets.Remove(ticket);
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return RedirectToAction("Login", "Account");
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        private bool TicketEntityExists(int id)
-        {
-            return _context.Tickets.Any(e => e.Id == id);
-        }
+        private bool TicketExists(int id) => _context.Tickets.Any(e => e.Id == id);
     }
 }
