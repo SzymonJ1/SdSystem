@@ -23,10 +23,10 @@ namespace SDsystem.Controllers
         [HttpPost]
         public IActionResult Login(UserModel model)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Username == model.Username && u.Password == model.Password);
+            var user = _context.Users.SingleOrDefault(u => u.UserName == model.UserName && u.PasswordHash == model.PasswordHash);
             if (user != null)
             {
-                HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetString("Username", user.UserName);
                 HttpContext.Session.SetString("Role", "Coordinator");
                 return RedirectToAction("Index", "Tickets");
             }
